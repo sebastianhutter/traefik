@@ -34,7 +34,7 @@ address = ":8080"
 readOnly = true
 
 [acme]
-email = "admin@ftsystems.ch"
+email = "mail@sebastian-hutter.ch"
 storage = "/acme/acme.json"
 entryPoint = "https"
 OnHostRule = true
