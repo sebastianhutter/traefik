@@ -6,6 +6,10 @@ set -e
 [ -f "run/secrets/aws-key" ] && export AWS_ACCESS_KEY_ID=$(cat /run/secrets/aws-key)
 [ -f "run/secrets/aws-secret" ] && export AWS_SECRET_ACCESS_KEY=$(cat /run/secrets/aws-secret)
 
+# create the acme.json file with the correct permisisons
+[ -f "/acme/acme.json" ] || touch /acme/acme.json
+chmod 600 /acme/acme.json
+
 # first arg is `-f` or `--some-option`
 if [ "${1#-}" != "$1" ]; then
     set -- traefik "$@"
