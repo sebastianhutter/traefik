@@ -1,0 +1,41 @@
+debug = true
+checkNewVersion = false
+logLevel = "DEBUG"
+
+defaultEntryPoints = ["https","http"]
+
+InsecureSkipVerify = true
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":10080"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+
+  [entryPoints.https]
+  address = ":10443"
+  [entryPoints.https.tls]
+[retry]
+
+[docker]
+endpoint = "tcp://swarm-master.hutter.cloud:2376"
+watch = true
+swarmmode = true
+exposedbydefault = false
+
+[docker.tls]
+ca = "/run/secrets/swarm-ca"
+cert = "/run/secrets/swarm-cert"
+key = "/run/secrets/swarm-key"
+insecureskipverify = true
+
+[web]
+address = ":8080"
+readOnly = true
+
+[acme]
+email = "mail@sebastian-hutter.ch"
+storage = "/acme/acme.json"
+entryPoint = "https"
+OnHostRule = true
+dnsProvider = "route53"
