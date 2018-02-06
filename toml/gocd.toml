@@ -24,9 +24,9 @@ swarmmode = true
 exposedbydefault = false
 
 [docker.tls]
-ca = "/run/secret/swarm-ca"
-cert = "/run/secret/swarm-cert"
-key = "/run/secret/swarm-key"
+ca = "/run/secrets/swarm-ca"
+cert = "/run/secrets/swarm-cert"
+key = "/run/secrets/swarm-key"
 insecureskipverify = true
 
 [web]
