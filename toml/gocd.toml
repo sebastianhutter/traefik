@@ -22,7 +22,6 @@ endpoint = "tcp://swarm-master.hutter.cloud:2376"
 watch = true
 swarmmode = true
 exposedbydefault = false
-constraints = ["tag==gocd"]
 
 [docker.tls]
 ca = "/run/secrets/swarm-ca"
