@@ -1,0 +1,41 @@
+debug = false
+checkNewVersion = false
+logLevel = "ERROR"
+
+defaultEntryPoints = ["https","http"]
+
+InsecureSkipVerify = true
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":8153"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+
+  [entryPoints.https]
+  address = ":8154"
+  [entryPoints.https.tls]
+[retry]
+
+[docker]
+endpoint = "tcp://swarm-master.hutter.cloud:2376"
+watch = true
+swarmmode = true
+exposedbydefault = false
+
+[docker.tls]
+ca = "/run/secret/swarm-ca"
+cert = "/run/secret/swarm-cert"
+key = "/run/secret/swarm-key"
+insecureskipverify = true
+
+[web]
+address = ":8080"
+readOnly = true
+
+[acme]
+email = "admin@ftsystems.ch"
+storage = "/acme/acme.json"
+entryPoint = "https"
+OnHostRule = true
+dnsProvider = "route53"
