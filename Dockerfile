@@ -1,7 +1,9 @@
-FROM traefik:alpine
+ARG VERSION=alpine
 
-# copy custom toml config
+FROM traefik:${VERSION}
+
 ARG TOML
+# copy custom toml config
 COPY toml/${TOML} /etc/traefik/traefik.toml
 
 # copy custom entrypoint script
