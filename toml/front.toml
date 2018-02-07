@@ -8,12 +8,12 @@ InsecureSkipVerify = true
 
 [entryPoints]
   [entryPoints.http]
-    address = ":8888"
+    address = ":80"
     [entryPoints.http.redirect]
       entryPoint = "https"
 
   [entryPoints.https]
-    address = ":8899"
+    address = ":443"
     [entryPoints.https.tls]
 [retry]
 
