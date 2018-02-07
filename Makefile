@@ -21,3 +21,7 @@ drone:
 	# FOR DNSRR WE NEED TO USE OLDER TRAEFIK VERSION...
 	docker build -t $(IMAGE_NAME):drone --build-arg TOML=drone.toml --build-arg VERSION=1.4-alpine .
 	docker push $(IMAGE_NAME):drone 
+
+vault:
+	docker build -t $(IMAGE_NAME):vault --build-arg TOML=vault.toml .
+	docker push $(IMAGE_NAME):vault 
