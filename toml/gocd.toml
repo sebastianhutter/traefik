@@ -9,8 +9,6 @@ InsecureSkipVerify = true
 [entryPoints]
   [entryPoints.http]
   address = ":8153"
-    [entryPoints.http.redirect]
-    entryPoint = "https"
 
   [entryPoints.https]
   address = ":8154"
